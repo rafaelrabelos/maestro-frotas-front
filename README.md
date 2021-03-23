@@ -1,4 +1,4 @@
-# Maestro Frotas [Backend]
+# Maestro Frotas [Frontend]
 
 Frontend desenvolvido com React
 
