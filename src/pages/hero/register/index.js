@@ -21,14 +21,13 @@ export default class Register extends React.Component {
     };
   }
 
-  handleRegister(e) {
+  async handleRegister(e) {
     e.preventDefault();
     this.setState({ loading: true });
 
+    await this.validaForm();
+
     if (this.state.cadastrarErroMsg.length > 0) {
-      this.validaSenhas();
-      this.validaCpf();
-      this.validaForm();
       this.setState({ loading: false });
       return;
     }
@@ -59,7 +58,7 @@ export default class Register extends React.Component {
     this.setState({ loading: false });
   }
 
-  showErrors(erros) {
+  async showErrors(erros) {
     let errors = [];
 
     if (erros.data && Array.isArray(erros.data.erros)) {
@@ -70,37 +69,55 @@ export default class Register extends React.Component {
 
     this.setState({
       cadastrarErro: true,
-      cadastrarErroMsg: errors.map((x, idx) => <p key={idx + "logon"}>{x}</p>),
+      cadastrarErroMsg: await errors.map((x, idx) => <p key={idx + "logon"}>{x}</p>),
     });
   }
 
-  validaCpf() {
+  async validaCpf() {
 
-    this.setState({cpf: cpf.format(this.state.cpf)});
-
-    if (!cpf.isValid(this.state.cpf)) {
+    this.setState({ cadastrarErro: "none", cadastrarErroMsg: [] });
+    
+    if (this.state.cpf.length > 10 && !cpf.isValid(this.state.cpf)) {
       this.setState({
         cadastrarErro: true,
         cadastrarErroMsg: ["Cpf inválido"],
       });
-    } else {
-      this.setState({ cadastrarErro: "none", cadastrarErroMsg: [] });
+      return false;
     }
+    if(this.state.cpf.length < 11){
+      return false
+    }
+
+    return true;
   }
 
-  validaSenhas() {
-    if (this.state.senha !== this.state.senhaRepetida) {
+  async validaSenhas() {
+
+    this.setState({ cadastrarErro: "none", cadastrarErroMsg: [] });
+
+    if (this.state.senha !== this.state.senhaRepetida || this.state.senha === "") {
       this.setState({
         cadastrarErro: true,
-        cadastrarErroMsg: ["As senha não são iguais"],
+        cadastrarErroMsg: ["As senha não são iguais ou são inválidas"],
       });
-    } else {
-      this.setState({ cadastrarErro: "none", cadastrarErroMsg: [] });
+      return false;
     }
+    return true;
   }
 
-  validaForm() {
-    if (
+  async validaForm() {
+
+    this.setState({ cadastrarErro: "none", cadastrarErroMsg: [] });
+
+    await this.validaSenhas() && await this.validaCpf();
+
+    if (this.state.cpf.length < 11){
+      this.setState({
+        cadastrarErro: true,
+        cadastrarErroMsg: ["CPF incompleto."],
+      });
+    }
+    else if (
       this.state.nome === "" ||
       this.state.cpf === "" ||
       this.state.email === "" ||
@@ -110,8 +127,6 @@ export default class Register extends React.Component {
         cadastrarErro: true,
         cadastrarErroMsg: ["Informe todos os campos."],
       });
-    } else {
-      this.setState({ cadastrarErro: "none", cadastrarErroMsg: [] });
     }
   }
 
@@ -151,7 +166,10 @@ export default class Register extends React.Component {
                 placeholder="CPF"
                 value={this.cpf}
                 onChange={(e) => {
-                  this.setState({ cpf: cpf.format(e.target.value)});
+                  this.setState({ cpf: cpf.format(e.target.value)},
+                  async () =>{
+                    await this.validaCpf()
+                  });
                 }}
                 required={true}
               />
@@ -181,8 +199,8 @@ export default class Register extends React.Component {
                 placeholder="Repetir Senha"
                 value={this.state.senhaRepetida}
                 onChange={(e) =>
-                  this.setState({ senhaRepetida: e.target.value }, () =>
-                    this.validaSenhas()
+                  this.setState({ senhaRepetida: e.target.value }, async () =>
+                    await this.validaSenhas()
                   )
                 }
                 required={true}
