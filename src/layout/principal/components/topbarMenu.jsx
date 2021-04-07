@@ -35,11 +35,6 @@ class TopBarMenu extends React.Component {
             </a>
           </div>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/hero">
-            Agendar castração
-          </a>
-        </li>
       </ul>
     );
   }

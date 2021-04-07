@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { AuthService } from "services";
-import logoImg from "img/logo.png";
+import logoImg from "img/frota.png";
 import { withRouter } from "react-router";
 import SwitchLayout from "components/switchLayout";
 import TopBarMenu from "./topbarMenu";
