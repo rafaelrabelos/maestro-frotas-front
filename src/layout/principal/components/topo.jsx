@@ -1,9 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { AuthService } from "services";
-import logoImg from "img/frota.png";
 import { withRouter } from "react-router";
-import SwitchLayout from "components/switchLayout";
 import TopBarMenu from "./topbarMenu";
 import GlobalSearch from "components/globalSearch";
 import UserProfileItem from "components/userProfileItem";
@@ -17,13 +15,8 @@ class Topo extends React.Component {
         {userIsLoged ? "" : <Redirect to="/auth"></Redirect>}
         <nav
           className="navbar fixed-top navbar-expand-md navbar-light bg-light"
-          style={{ borderBottomStyle: "ridge" }}
+          style={{ borderBottomStyle: "solid", color:"gray" }}
         >
-          <nav className="navbar navbar-light bg-light">
-            <a className="navbar-brand" href="/user">
-              <img src={logoImg} width="100" height="30" alt="" />
-            </a>
-          </nav>
           <button
             className="navbar-toggler"
             type="button"
@@ -47,16 +40,6 @@ class Topo extends React.Component {
               </div>
             </div>
 
-            <div className="w-10 order-2">
-              <div className="row text-center ">
-                <div className="col-md-6 mb-4">
-                  <div className="col col-md-12" style={{ marginTop: "30px" }}>
-                    <SwitchLayout />
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div className="w-10 order-3">
               <div className="row text-center">
                 <div className="col-md-6 mb-4 profile-menu">
@@ -68,6 +51,7 @@ class Topo extends React.Component {
                 </div>
               </div>
             </div>
+            
           </div>
         </nav>
       </>
