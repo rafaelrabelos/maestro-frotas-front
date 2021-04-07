@@ -11,10 +11,10 @@ const cardItem = (title, desc) =>{
     {name: 'Mai', cadastro: 660, locacao: 2600, amt: 2400}
   ];
   return(
-    <div className="card" style={{ width: "18rem", margin: "1%" }}>
+    <div className="card" style={{ width: "50%", margin: "1%" }}>
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
-            <LineChart width={250} height={200} data={data}>
+            <LineChart width={500} height={200} data={data}>
               <XAxis dataKey="name"/>
               <YAxis/>
               <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
@@ -22,9 +22,10 @@ const cardItem = (title, desc) =>{
               <Line type="monotone" dataKey="locacao" stroke="#82ca9d" />
             </LineChart>
             <p className="card-text"><small>{desc}</small></p>
-            <a href="/user" className="btn btn-sm btn-primary">
-              Mais
-            </a>
+            <div className="row">
+            <div className="col col-md-2"><a href="/user" className="btn btn-sm btn-primary">Mais</a></div>
+            <div className="col col-md-2"><a href="/user" className="btn btn-sm btn-primary">Export</a></div>
+            </div>
           </div>
         </div>
   );
