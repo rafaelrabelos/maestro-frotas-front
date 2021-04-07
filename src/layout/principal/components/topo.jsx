@@ -2,7 +2,6 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { AuthService } from "services";
 import { withRouter } from "react-router";
-import TopBarMenu from "./topbarMenu";
 import GlobalSearch from "components/globalSearch";
 import UserProfileItem from "components/userProfileItem";
 import "layout/principal/styles/topo.css";
@@ -17,6 +16,8 @@ class Topo extends React.Component {
           className="navbar fixed-top navbar-expand-md navbar-light bg-light"
           style={{ borderBottomStyle: "solid", color:"gray" }}
         >
+          <a href="/user"><h2>MAESTRO FROTAS</h2></a>
+          
           <button
             className="navbar-toggler"
             type="button"
@@ -32,8 +33,6 @@ class Topo extends React.Component {
             className="collapse navbar-collapse order-1 order-md-0 dual-collapse2"
             id="navbarSupportedContent"
           >
-            <TopBarMenu />
-
             <div className="mx-auto order-0">
               <div className="input-group input-group-sm mb-3">
                 <GlobalSearch />

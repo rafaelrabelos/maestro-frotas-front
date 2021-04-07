@@ -23,6 +23,7 @@ class TopoAdmin extends React.Component {
           className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark"
           style={{ borderBottomStyle: "solid", borderColor: "grey" }}
         >
+          <a href="/admin"><h2>MAESTRO FROTAS</h2></a>
           <button
             className="navbar-toggler"
             type="button"
