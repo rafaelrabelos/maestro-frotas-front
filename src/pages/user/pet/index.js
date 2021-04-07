@@ -30,7 +30,7 @@ export default function Register() {
 
       alert(`Pet ${response.data.nome} cadastrado com sucesso`);
 
-      history.push("/user/index");
+      history.push("/user/home");
     } catch (err) {
       alert("Erro no cadastro. Tente novamente.");
     }

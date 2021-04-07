@@ -18,7 +18,7 @@ var userRoutes = [
   },
   {
     layout: "/user",
-    page: "/index",
+    page: "/home",
     nome: "Dashboard",
     component: Home,
   },
@@ -40,7 +40,7 @@ var adminRoutes = [
   {
     layout: "/admin",
     page: "/home",
-    nome: "Home",
+    nome: "Dashboard",
     component: AdminDashboard,
   },
   {
