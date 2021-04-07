@@ -7,7 +7,7 @@ export default class Logon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      cpf: "",
       senha: "",
       loginErro: "none",
       loginErroMsg: "",
@@ -23,7 +23,7 @@ export default class Logon extends React.Component {
   handleLogin(e) {
     e.preventDefault();
 
-    AuthService.Login({ email: this.state.email, senha: this.state.senha })
+    AuthService.Login({ cpf: this.state.cpf, senha: this.state.senha })
       .then((res) => {
         if (res.data.status === false) {
           this.showErrors(res);
@@ -83,11 +83,11 @@ export default class Logon extends React.Component {
                 <div className="form-row">
                   <div className="col-lg-10">
                     <input
-                      type="email"
+                      type="cpf"
                       placeholder="CPF"
-                      value={this.email}
+                      value={this.cpf}
                       onChange={(e) => {
-                        this.setState({ email: e.target.value });
+                        this.setState({ cpf: e.target.value });
                       }}
                       className="form-control my-3 p-4"
                       required={true}
