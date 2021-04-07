@@ -12,11 +12,6 @@
   box-shadow: 4px 4px 8px #808080b8;
   margin-bottom: 10%;
 }
-img {
-  padding-top: 120px;
-  border-top-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
 .btn1,
 .btn2 {
   border: none;
