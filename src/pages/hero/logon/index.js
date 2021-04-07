@@ -1,7 +1,6 @@
 import React from "react";
 import { AuthService } from "services";
-import petImg from "img/pets.jpg";
-import logoImg from "img/logo.png";
+import frotaImage from "img/frota.png";
 import "./styles.css";
 
 export default class Logon extends React.Component {
@@ -67,43 +66,25 @@ export default class Logon extends React.Component {
         <div className="container main-container">
           <div className="row no-gutters">
             <div className="col-lg-6 col-md-6">
-              <div className="col-lg-12 col-md-10">
-                <img alt="dog-banner" src={petImg} className="img-fluid" />
+              <br />
+              <div className="col-lg-12 col-md-10 img">
+                <img alt="dog-banner" src={frotaImage} className="img-fluid" />
               </div>
-              <div className="col-lg-12 col-md-8">
-                <p className="centertext descriptiontext">
-                  &#128073; Diariamente centenas de animais são abondonados por
-                  seus donos. Acesse nossa plataforma e nos ajude a mudar esta
-                  realidade, adotando um amiguinho e sendo o herói.
-                  <br />
-                </p>
-
-                <ul style={{ margin: "30px", fontsize: "large" }}>
-                  <li>
-                    Já são mais de &#128054; <b>10.000</b> adoções{" "}
-                  </li>
-                  <li>
-                    Não menos que <b>38.000</b> &#128008; castrações
-                  </li>
-                  <li>
-                    Entre cães e gatos, são mais de <b>8.000</b> &#128021;
-                    cadastros
-                  </li>
-                </ul>
-              </div>
+              
             </div>
             <div className="col-lg-6 col-md-6 px-5 pt-5">
               <h1 className="font-weight-bold py-3">
-                <img src={logoImg} className="img-fluid" alt="" />
+                {/* <img src={logoImg} className="img-fluid" alt="" /> */}
+                Maestro Frotas
               </h1>
               <br />
-              <h4>Entre com sua conta</h4>
+              <h5>Acessar o sistema</h5>
               <form onSubmit={this.handleLogin}>
                 <div className="form-row">
                   <div className="col-lg-10">
                     <input
                       type="email"
-                      placeholder="Email"
+                      placeholder="CPF"
                       value={this.email}
                       onChange={(e) => {
                         this.setState({ email: e.target.value });
@@ -161,22 +142,37 @@ export default class Logon extends React.Component {
                       type="submit"
                       className="btn1 mt-3 mb-1"
                     >
-                      Logar
-                    </button>
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="col-lg-10">
-                    <button type="button" className="btn2 mb-3">
-                      <i className="fab fa-google mr-2"></i>Logar com o Google
+                      Acessar
                     </button>
                   </div>
                 </div>
                 <p>
-                  Ainda não é um herói?
+                 Ainda não tem registro?
                   <a href="/auth/cadastrar"> Cadastre-se!</a>
                 </p>
               </form>
+              <div className="col-lg-12 col-md-8">
+                <p className="centertext descriptiontext">
+                  <br />
+                  <br />
+                  <br />
+                  &#128073; Diariamente milhares de veículos são utilizados em toda a cidade. 
+                  A gestão destas frotas é primordial para que uma empresa tenha controle e redução de custos.
+                  <br />
+                </p>
+
+                <ul style={{ margin: "30px", fontsize: "large" }}>
+                  <li>
+                    Já são mais de <b>10.000</b> empresas{" "}
+                  </li>
+                  <li>
+                    Não menos que <b>380.000</b> veíclos
+                  </li>
+                  <li>
+                    Entre nossos cliente, são mais de <b>88%</b> satisfeitos
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

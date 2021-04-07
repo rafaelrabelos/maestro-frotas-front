@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
-import logoImg from "img/logo.png";
+import { cpf } from 'cpf-cnpj-validator'; 
 import { ProfileService, AuthService } from "services";
 import Loading from "components/loading";
 import "./styles.css";
@@ -11,6 +11,7 @@ export default class Register extends React.Component {
     super(props);
     this.state = {
       nome: "",
+      cpf: "",
       email: "",
       senha: "",
       senhaRepetida: "",
@@ -26,6 +27,7 @@ export default class Register extends React.Component {
 
     if (this.state.cadastrarErroMsg.length > 0) {
       this.validaSenhas();
+      this.validaCpf();
       this.validaForm();
       this.setState({ loading: false });
       return;
@@ -33,10 +35,10 @@ export default class Register extends React.Component {
 
     ProfileService.Create({
       nome: this.state.nome,
+      cpf: this.state.cpf,
       email: this.state.email,
       senha: this.state.senha,
-    })
-      .then((res) => {
+    }).then((res) => {
         if (res.data.status === false) {
           this.showErrors(res);
         } else {
@@ -72,6 +74,20 @@ export default class Register extends React.Component {
     });
   }
 
+  validaCpf() {
+
+    this.setState({cpf: cpf.format(this.state.cpf)});
+
+    if (!cpf.isValid(this.state.cpf)) {
+      this.setState({
+        cadastrarErro: true,
+        cadastrarErroMsg: ["Cpf inválido"],
+      });
+    } else {
+      this.setState({ cadastrarErro: "none", cadastrarErroMsg: [] });
+    }
+  }
+
   validaSenhas() {
     if (this.state.senha !== this.state.senhaRepetida) {
       this.setState({
@@ -86,6 +102,7 @@ export default class Register extends React.Component {
   validaForm() {
     if (
       this.state.nome === "" ||
+      this.state.cpf === "" ||
       this.state.email === "" ||
       this.state.senha === ""
     ) {
@@ -108,12 +125,9 @@ export default class Register extends React.Component {
         <div className="register-container">
           <div className="content">
             <section>
-              <img src={logoImg} alt="Seja um Herói" />
-
               <h1>Cadastro</h1>
               <p>
-                Faça seu cadastro e torne-se um herói, adotanto um pet e tirando
-                ele das ruas.
+              Faça seu cadastro para ter acesso ao sistema.
               </p>
 
               <Link className="back-link" to="/auth">
@@ -131,6 +145,16 @@ export default class Register extends React.Component {
                 }}
                 required={true}
               />
+              
+              <input
+                type="cpf"
+                placeholder="CPF"
+                value={this.cpf}
+                onChange={(e) => {
+                  this.setState({ cpf: cpf.format(e.target.value)});
+                }}
+                required={true}
+              />
 
               <input
                 type="email"
@@ -141,6 +165,7 @@ export default class Register extends React.Component {
                 }}
                 required={true}
               />
+              <br />
 
               <input
                 type="password"
@@ -151,7 +176,6 @@ export default class Register extends React.Component {
                 }}
                 required={true}
               />
-
               <input
                 type="password"
                 placeholder="Repetir Senha"
