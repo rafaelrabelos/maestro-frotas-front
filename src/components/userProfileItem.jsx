@@ -92,7 +92,7 @@ class UserProfileItem extends React.Component {
           <div className="dropdown-divider"></div>
           <a
             className="dropdown-item"
-            href="/hero"
+            href="/user"
             onClick={() => this.handleLogout()}
           >
             <div className="row">

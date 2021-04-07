@@ -7,7 +7,7 @@ class TopBarMenu extends React.Component {
     return (
       <ul className="navbar-nav mr-auto">
         <li className="nav-item active">
-          <a className="nav-link" href="/hero">
+          <a className="nav-link" href="/user">
             Home <span className="sr-only">(current)</span>
           </a>
         </li>
@@ -24,13 +24,13 @@ class TopBarMenu extends React.Component {
             Cadastrar
           </a>
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a className="dropdown-item" href="/hero">
+            <a className="dropdown-item" href="/user">
               Cadastrar Caso
             </a>
-            <a className="dropdown-item" href="/hero/cadastrar">
+            <a className="dropdown-item" href="/user/cadastrar">
               Cadastrar Pets
             </a>
-            <a className="dropdown-item" href="/hero">
+            <a className="dropdown-item" href="/user">
               Cadastrar Usuário
             </a>
           </div>

@@ -57,7 +57,7 @@ export default class Logon extends React.Component {
   }
 
   gotoHome() {
-    this.props.history.push("/hero");
+    this.props.history.push("/user");
   }
 
   render() {

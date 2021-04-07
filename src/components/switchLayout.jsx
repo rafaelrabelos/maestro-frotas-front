@@ -56,7 +56,7 @@ class SwitchLayout extends React.Component {
                   <div className="dropdown-divider"></div>
                   <a
                     className="dropdown-item"
-                    href={this.state.admLayout ? "/hero" : "/admin"}
+                    href={this.state.admLayout ? "/user" : "/admin"}
                   >
                     <div className="row">
                       <div className="col col-md-2">

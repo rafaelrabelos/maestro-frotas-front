@@ -17,19 +17,19 @@ var userRoutes = [
     component: Register,
   },
   {
-    layout: "/hero",
+    layout: "/user",
     page: "/index",
     nome: "Dashboard",
     component: Home,
   },
   {
-    layout: "/hero",
+    layout: "/user",
     page: "/profile",
     nome: "Profile",
     component: Profile,
   },
   {
-    layout: "/hero",
+    layout: "/user",
     page: "/cadastrar",
     nome: "CadastrarPet",
     component: Pet,

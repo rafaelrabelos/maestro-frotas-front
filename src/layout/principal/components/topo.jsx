@@ -20,7 +20,7 @@ class Topo extends React.Component {
           style={{ borderBottomStyle: "ridge" }}
         >
           <nav className="navbar navbar-light bg-light">
-            <a className="navbar-brand" href="/hero">
+            <a className="navbar-brand" href="/user">
               <img src={logoImg} width="100" height="30" alt="" />
             </a>
           </nav>
@@ -62,7 +62,7 @@ class Topo extends React.Component {
                 <div className="col-md-6 mb-4 profile-menu">
                   <ul className="navbar-nav mr-auto ">
                     <li className="nav-item dropdown">
-                      <UserProfileItem pathBase="/hero" />
+                      <UserProfileItem pathBase="/user" />
                     </li>
                   </ul>
                 </div>

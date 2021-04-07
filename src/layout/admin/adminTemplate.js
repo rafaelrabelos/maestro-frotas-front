@@ -26,7 +26,7 @@ class AdminLayout extends React.Component {
     const isAdm = this.shwowSwitchLayout();
     return (
       <>
-        {!isAdm ? <Redirect to="/hero" /> : ""}
+        {!isAdm ? <Redirect to="/user" /> : ""}
         <TopoAdmin />
         <SideBar basePath="/admin" />
         <div className="main-content">

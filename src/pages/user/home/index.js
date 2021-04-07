@@ -20,7 +20,7 @@ export default function Home() {
               Cachorro fofo, com nenhum problema de comportamento e muito bem
               criado.
             </p>
-            <a href="/hero" className="btn btn-primary">
+            <a href="/user" className="btn btn-primary">
               Mais Informações
             </a>
           </div>
