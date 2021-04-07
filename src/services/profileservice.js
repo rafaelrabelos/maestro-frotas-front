@@ -1,6 +1,6 @@
 import api from "./api";
 
-export async function Create({ nome, email, senha }) {
+export async function Create({ nome, cpf, email, senha }) {
   const user = process.env.REACT_APP_SYS_BACK_USER;
   const pass = process.env.REACT_APP_SYS_BACK_PW;
   let response = { data: { status: false, erros: [] } };
@@ -11,7 +11,7 @@ export async function Create({ nome, email, senha }) {
   }
 
   try {
-    const sysLogin = await api.post("/login", { email: user, senha: pass });
+    const sysLogin = await api.post("/auth/login", { cpf: user, senha: pass });
 
     if (sysLogin.data.status !== true) {
       response.data.erros = ["Sistema não pode se validar corretamente."];
@@ -21,7 +21,7 @@ export async function Create({ nome, email, senha }) {
     const token = sysLogin.data.data.token;
     const res = await api.post(
       "/user",
-      { nome, email, senha },
+      { nome, cpf, email, senha },
       { headers: { Authorization: `Bearer ${token}` } }
     );
 

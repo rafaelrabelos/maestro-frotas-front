@@ -9,18 +9,19 @@
   border-color: #9e9e9e33;
   background: white;
   border-radius: 25px;
-  box-shadow: 9px 9px 16px #808080b8;
+  box-shadow: 4px 4px 8px #808080b8;
   margin-bottom: 10%;
 }
 img {
-  border-top-left-radius: 30px;
+  padding-top: 120px;
+  border-top-right-radius: 30px;
   border-bottom-left-radius: 30px;
 }
 .btn1,
 .btn2 {
   border: none;
   outline: none;
-  height: 50px;
+  height: 40px;
   width: 100%;
   border-radius: 4px;
   font-weight: bold;
@@ -28,15 +29,15 @@ img {
   color: white;
 }
 .btn1 {
-  background-color: rgb(51, 153, 255);
+  background-color: rgb(0, 189, 101);
 }
 .btn2 {
   background-color: rgb(255, 0, 0);
 }
 .btn1:hover {
-  background: white;
+  background: rgb(218, 249, 243);
   border: 1px solid;
-  color: rgb(51, 153, 255);
+  color: rgb(0, 103, 29);
 }
 .btn2:hover {
   background: white;
