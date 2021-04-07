@@ -1,5 +1,4 @@
 import React from "react";
-import logoImg from "img/logo.png";
 import "layout/principal/styles/rodape.css";
 
 export default function Rodape() {
@@ -8,9 +7,6 @@ export default function Rodape() {
       <footer className="footer-distributed">
         <hr />
         <div className="footer-left">
-          <span>
-            <img src={logoImg} width="100" height="30" alt="" />
-          </span>
           <p className="footer-links">
             <a href="/" className="link-1">
               Home
@@ -23,7 +19,7 @@ export default function Rodape() {
             <a href="/auth/contato">Contato</a>
           </p>
           <p className="footer-company-name">
-            seja um herói © 2020 Todos os direitos reservados
+            Maestro frotas © 2021 Todos os direitos reservados
           </p>
         </div>
 
@@ -32,7 +28,7 @@ export default function Rodape() {
             <i className="fa fa-envelope"></i>
             <p>
               <a href="mailto:support@company.com">
-                contato@sejaumheroi.com.br
+                contato@maestrofrotas.com.br
               </a>
             </p>
           </div>
@@ -41,10 +37,9 @@ export default function Rodape() {
         <div className="footer-right">
           <p className="footer-company-about">
             <span>Sobre</span>
-            Seja um herói! Adote um pet e seja o herói dele. Ele vai ser seu fâ
-            para sempre.
+            Controle e tenha retorno sobre sua frota.
+             Buscamos trazer uma solução que de autonomia e agilidade no controle de frotas de automoveis.
             <br />
-            Buscamos facilitar o trabalho dos heróis.
           </p>
           <div className="footer-icons">
             <a href="https://www.facebook.com">

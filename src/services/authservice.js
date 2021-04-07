@@ -1,8 +1,8 @@
 import api from "./api";
 import jwt_decode from "jwt-decode";
 
-export async function Login({ email, senha }) {
-  const res = await api.post("/login", { email, senha });
+export async function Login({ cpf, senha }) {
+  const res = await api.post("/auth/login", { cpf, senha });
 
   if (res.data.status !== false) {
     sessionStorage.setItem("token", res.data.data.token);
