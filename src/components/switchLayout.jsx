@@ -25,7 +25,7 @@ class SwitchLayout extends React.Component {
     const {admLayout} = this.state;
     return(
       <div className="row">
-          <div className="col">
+          <div className="col col-md-2">
           <span className="badge badge-pill badge-warning">{!admLayout ? "Adm" : "Usr"}</span>
             <a
               className={`btn btn-circle btn-sm btn-${!admLayout ? "" : "outline-"}secondary`}
