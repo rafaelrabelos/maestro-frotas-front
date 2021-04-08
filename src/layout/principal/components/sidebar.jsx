@@ -12,50 +12,30 @@ class SideBar extends React.Component {
 
   menuSubItemList() {
     const {basePath} = this.props;
-    const subItens_Pet = [
+    const subItens_Suporte = [
       {
         href: `${basePath}/pets`,
-        faIco: "fa fa-dog",
-        name: "Gerenciar pets",
+        faIco: "fa fa-user",
+        name: "Usuarios",
         class: "nc",
-        color: "#833f94",
-        parentName: "Pets",
+        color: "#0c91a8",
+        parentName: "Suporte",
       },
       {
         href: `${basePath}/pets-classes`,
-        faIco: "fa fa-tasks",
-        name: "Classes",
+        faIco: "fa fa-car",
+        name: "Veiculos",
         class: "nc",
-        color: "#513f94",
-        parentName: "Pets",
+        color: "#0c91a8",
+        parentName: "Suporte",
       },
       {
         href: `${basePath}/pets-racas`,
-        faIco: "fa fa-cat",
-        name: "Raças",
+        faIco: "fa fa-handshake",
+        name: "Reserva",
         class: "nc",
-        color: "#943f82",
-        parentName: "Pets",
-      },
-    ];
-
-    const subItens_Users = [
-      {
-        href: `${basePath}/users`,
-        faIco: "fa fa-users-cog",
-        name: "Gerenciar Usuários",
-        class: "nc",
-        parentName: "Usuários",
-      },
-    ];
-
-    const subItens_Vaccine = [
-      {
-        href: `${basePath}/vacinas`,
-        faIco: "fa fa-pills",
-        name: "Gerenciar Vacinas",
-        class: "nc",
-        parentName: "Vacinas",
+        color: "#0c91a8",
+        parentName: "Suporte",
       },
     ];
 
@@ -76,8 +56,8 @@ class SideBar extends React.Component {
       },
     ];
 
-    return subItens_Pet.concat(
-      subItens_Users.concat(subItens_Vaccine.concat(subItens_Ajuste))
+    return subItens_Suporte.concat(
+      subItens_Ajuste
     );
   }
 
@@ -95,28 +75,10 @@ class SideBar extends React.Component {
       //in group
       {
         href: basePath,
-        faIco: "fa fa-paw",
-        name: "Pets",
+        faIco: "fa fa-window-restore",
+        name: "Suporte",
         class: "darkerlishadow",
         color: "#860ba5",
-        group: true,
-        subItens: [],
-      },
-      {
-        href: basePath,
-        faIco: "fa fa-user-circle",
-        name: "Usuários",
-        class: "darkerli",
-        color: "#04885c",
-        group: true,
-        subItens: [],
-      },
-      {
-        href: basePath,
-        faIco: "fa fa-syringe",
-        name: "Vacinas",
-        class: "darkerli",
-        color: "#75b1f5",
         group: true,
         subItens: [],
       },

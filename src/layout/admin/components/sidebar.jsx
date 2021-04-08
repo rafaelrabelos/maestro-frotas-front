@@ -12,40 +12,38 @@ class SideBar extends React.Component {
 
   menuSubItemList() {
     const {basePath} = this.props;
-    const subItens_Pet = [
+    const subItens_Gerenciar = [
       {
         href: `${basePath}/pets`,
-        faIco: "fa fa-dog",
-        name: "Gerenciar pets",
+        faIco: "fa fa-user",
+        name: "Usuários",
         class: "nc",
-        color: "#833f94",
-        parentName: "Pets",
+        parentName: "Gerenciar",
       },
       {
         href: `${basePath}/pets-classes`,
-        faIco: "fa fa-tasks",
-        name: "Classes",
+        faIco: "fa fa-car",
+        name: "Frota",
         class: "nc",
-        color: "#513f94",
-        parentName: "Pets",
+        parentName: "Gerenciar",
       },
       {
         href: `${basePath}/pets-racas`,
-        faIco: "fa fa-cat",
-        name: "Raças",
+        faIco: "fa fa-truck",
+        name: "Fornecedores",
         class: "nc",
-        color: "#943f82",
-        parentName: "Pets",
+        parentName: "Gerenciar",
       },
     ];
 
     const subItens_Users = [
       {
         href: `${basePath}/users`,
-        faIco: "fa fa-users-cog",
-        name: "Gerenciar Usuários",
+        faIco: "fa fa-handshake",
+        name: "Adesão/Locação",
         class: "nc",
-        parentName: "Usuários",
+        color: "#833f94",
+        parentName: "Relatórios",
       },
     ];
 
@@ -53,9 +51,9 @@ class SideBar extends React.Component {
       {
         href: `${basePath}/vacinas`,
         faIco: "fa fa-pills",
-        name: "Gerenciar Vacinas",
+        name: "Beneficios",
         class: "nc",
-        parentName: "Vacinas",
+        parentName: "Colaboradores",
       },
     ];
 
@@ -76,7 +74,7 @@ class SideBar extends React.Component {
       },
     ];
 
-    return subItens_Pet.concat(
+    return subItens_Gerenciar.concat(
       subItens_Users.concat(subItens_Vaccine.concat(subItens_Ajuste))
     );
   }
@@ -95,28 +93,28 @@ class SideBar extends React.Component {
       //in group
       {
         href: basePath,
-        faIco: "fa fa-paw",
-        name: "Pets",
+        faIco: "fa fa-cog",
+        name: "Gerenciar",
         class: "darkerlishadow",
-        color: "#860ba5",
+        color: "#0c91a8",
         group: true,
         subItens: [],
       },
       {
         href: basePath,
-        faIco: "fa fa-user-circle",
-        name: "Usuários",
+        faIco: "fa fa-database",
+        name: "Relatórios",
         class: "darkerli",
-        color: "#04885c",
+        color: "#0c91a8",
         group: true,
         subItens: [],
       },
       {
         href: basePath,
-        faIco: "fa fa-syringe",
-        name: "Vacinas",
+        faIco: "fa fa-address-card",
+        name: "Colaboradores",
         class: "darkerli",
-        color: "#75b1f5",
+        color: "#0c91a8",
         group: true,
         subItens: [],
       },
