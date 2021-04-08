@@ -65,8 +65,7 @@ export default class Logon extends React.Component {
       <section className="form my-4 mx-5">
         <div className="container main-container">
           <div className="row no-gutters">
-            <div className="col-lg-6 col-md-6">
-              <br />
+            <div className="col-lg-6 col-md-6 center">
               <div className="col-lg-12 col-md-10 img">
                 <img alt="dog-banner" src={frotaImage} className="img-fluid" />
               </div>

@@ -57,3 +57,9 @@
   padding-top: 10px;
 
 }
+
+img{
+  margin: auto;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
