@@ -4,6 +4,8 @@ import { Switch, Redirect } from "react-router-dom";
 //components
 import Topo from "./components/topo";
 import Rodape from "./components/rodape";
+import SideBar from "./components/sidebar";
+import BreadCrumb from "components/breadcrumb";
 import routes, { getRoutes } from "routes.js";
 import "./styles/layout.css";
 
@@ -19,7 +21,9 @@ class UserLayout extends React.Component {
     return (
       <>
         <Topo />
+        <SideBar basePath="/user" />
         <div className="main-content">
+        <BreadCrumb />
           {/* Page content */}
 
           {/* roteamento do layout */}
@@ -27,7 +31,7 @@ class UserLayout extends React.Component {
             <Row className="justify-content-center">
               <Switch>
                 {getRoutes(routes, "/user")}
-                <Redirect from="*" to="/user/index" />
+                <Redirect from="*" to="/user/home" />
               </Switch>
             </Row>
           </Container>
