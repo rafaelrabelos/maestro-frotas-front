@@ -57,6 +57,12 @@
   padding-top: 10px;
 
 }
+.right-link {
+  text-align: right;
+  margin: auto;
+  width: 100%;
+  padding-top: 5px;
+}
 
 img{
   margin: auto;

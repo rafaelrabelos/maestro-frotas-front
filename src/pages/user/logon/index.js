@@ -105,6 +105,11 @@ export default class Logon extends React.Component {
                       className="form-control p-4"
                       required={true}
                     />
+                    <div className="col-lg-12 right-link">
+                      <a href="/auth/recuperar-senha">
+                        <small>Esqueci minha senha</small>
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -135,7 +140,7 @@ export default class Logon extends React.Component {
                 </div>
 
                 <div className="form-row">
-                  <div className="col-lg-12">
+                  <div className="col-lg-12" style={{paddingTop:"30px"}}>
                     <button
                       onClick={(e) => this.handleLogin(e)}
                       type="submit"
@@ -148,11 +153,6 @@ export default class Logon extends React.Component {
               </form>
               <div className="col-lg-12 center-link">
                   <a href="/auth/cadastrar">Cadastre-me</a>
-              </div>
-              <div className="col-lg-12 center-link">
-                <a href="/auth/recuperar-senha">
-                  <small>Esqueci minha senha</small>
-                </a>
               </div>
               <div className="col-lg-12 col-md-8 center">
                 <p className="centertext descriptiontext">
