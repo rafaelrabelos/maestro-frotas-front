@@ -81,7 +81,7 @@ export default class Logon extends React.Component {
               <h5>Acessar o sistema</h5>
               <form onSubmit={this.handleLogin}>
                 <div className="form-row">
-                  <div className="col-lg-10">
+                  <div className="col-lg-12">
                     <input
                       type="cpf"
                       placeholder="CPF"
@@ -95,7 +95,7 @@ export default class Logon extends React.Component {
                   </div>
                 </div>
                 <div className="form-row">
-                  <div className="col-lg-10">
+                  <div className="col-lg-12">
                     <input
                       type="password"
                       placeholder="Senha"
@@ -112,7 +112,7 @@ export default class Logon extends React.Component {
                   className="form-row"
                   style={{ display: this.state.loginErro }}
                 >
-                  <div className="col-lg-10">
+                  <div className="col-lg-12">
                     <br />
                     <div
                       className="alert alert-warning alert-dismissible fade show"
@@ -120,7 +120,7 @@ export default class Logon extends React.Component {
                     >
                       <strong>Ooops!</strong>
                       {this.state.loginErroMsg}{" "}
-                      <a href="/auth/recuperar-senha">Recuperar senha</a>
+                      <a href="/auth/recuperar-senha"><small>Esqueceu sua senha?</small></a>
                       <button
                         type="button"
                         onClick={() =>
@@ -136,7 +136,7 @@ export default class Logon extends React.Component {
                 </div>
 
                 <div className="form-row">
-                  <div className="col-lg-10">
+                  <div className="col-lg-12">
                     <button
                       onClick={(e) => this.handleLogin(e)}
                       type="submit"
@@ -146,12 +146,16 @@ export default class Logon extends React.Component {
                     </button>
                   </div>
                 </div>
-                <p>
-                 Ainda não tem registro?
-                  <a href="/auth/cadastrar"> Cadastre-se!</a>
-                </p>
               </form>
-              <div className="col-lg-12 col-md-8">
+              <div className="col-lg-12 center-link">
+                  <a href="/auth/cadastrar">Cadastre-me</a>
+              </div>
+              <div className="col-lg-12 center-link">
+                <a href="/auth/recuperar-senha">
+                  <small>Esqueci minha senha</small>
+                </a>
+              </div>
+              <div className="col-lg-12 col-md-8 center">
                 <p className="centertext descriptiontext">
                   <br />
                   <br />

@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 import React from "react";
 import { Logon, Register, Pet, Home, Profile } from "./pages";
-import { AdminProfile, AdminDashboard, ManageUsers, ManageStock } from "./pages";
+import { AdminProfile, AdminDashboard, ManageUsers, ManageStock, PasswordRecovery } from "./pages";
 
 var userRoutes = [
   {
@@ -15,6 +15,12 @@ var userRoutes = [
     page: "/cadastrar",
     nome: "Cadastrar",
     component: Register,
+  },
+  {
+    layout: "/auth",
+    page: "/recuperar-senha",
+    nome: "Recuperar senha",
+    component: PasswordRecovery,
   },
   {
     layout: "/user",

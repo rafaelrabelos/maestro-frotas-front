@@ -9,6 +9,7 @@ import AdminDashboard from "./admin/home";
 import AdminProfile from "./admin/profile";
 import ManageStock from "./admin/manage-stock";
 import ManageUsers from "./admin/manage-users";
+import PasswordRecovery from './user/pass-recovery'
 
 export {
   Logon,
@@ -20,5 +21,6 @@ export {
   AdminDashboard,
   AdminProfile,
   ManageStock,
-  ManageUsers
+  ManageUsers,
+  PasswordRecovery
 };
