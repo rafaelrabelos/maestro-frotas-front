@@ -53,7 +53,7 @@ class UserProfileItem extends React.Component {
         icon: "fa fa-user-circle",
         color: "Blue",
         href: `${pathBase}/profile`,
-        onClick: "",
+        onClick: ()=>{},
       },
       { divider: true },
       {
@@ -64,11 +64,12 @@ class UserProfileItem extends React.Component {
         onClick: () => this.handleLogout(),
       },
     ];
-    return menuItemsData.map((item) =>
+    return menuItemsData.map((item, idx) =>
       item.divider ? (
-        <div className="dropdown-divider"></div>
+        <div key={`${idx}-dropdown-item`} className="dropdown-divider"></div>
       ) : (
         <a className="dropdown-item"
+        key={`${idx}-dropdown-item`}
         href={item.href}
         onClick={item.onClick}
         >
