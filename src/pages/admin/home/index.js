@@ -1,5 +1,5 @@
 import React from "react";
-import {LineChart,BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Line, ResponsiveContainer} from 'recharts';
+import {LineChart,BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Line } from 'recharts';
 import "./styles.css";
 
 const cardChartAdesaoVsLocacao = (title, desc) =>{
@@ -85,8 +85,6 @@ export default function AdminDashboard() {
           "Descreve o numero os valores de entrada e saída com base nas transações realizadas pelo sistema ou lançadas manualmente.")
           }
         </div>
-          
-          
       </div>
       </div>
     </>

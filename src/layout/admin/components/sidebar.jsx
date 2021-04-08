@@ -14,14 +14,14 @@ class SideBar extends React.Component {
     const {basePath} = this.props;
     const subItens_Gerenciar = [
       {
-        href: `${basePath}/pets`,
+        href: `${basePath}/gerenciar-usuarios`,
         faIco: "fa fa-user",
         name: "Usuários",
         class: "nc",
         parentName: "Gerenciar",
       },
       {
-        href: `${basePath}/pets-classes`,
+        href: `${basePath}/gerenciar-frota`,
         faIco: "fa fa-car",
         name: "Frota",
         class: "nc",
@@ -36,7 +36,7 @@ class SideBar extends React.Component {
       },
     ];
 
-    const subItens_Users = [
+    const subItens_Relatorios = [
       {
         href: `${basePath}/users`,
         faIco: "fa fa-handshake",
@@ -47,7 +47,7 @@ class SideBar extends React.Component {
       },
     ];
 
-    const subItens_Vaccine = [
+    const subItens_Colaboradores = [
       {
         href: `${basePath}/vacinas`,
         faIco: "fa fa-pills",
@@ -75,7 +75,7 @@ class SideBar extends React.Component {
     ];
 
     return subItens_Gerenciar.concat(
-      subItens_Users.concat(subItens_Vaccine.concat(subItens_Ajuste))
+      subItens_Relatorios.concat(subItens_Colaboradores.concat(subItens_Ajuste))
     );
   }
 

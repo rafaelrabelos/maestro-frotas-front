@@ -7,7 +7,8 @@ import Profile from "./user/profile";
 // Admin imports
 import AdminDashboard from "./admin/home";
 import AdminProfile from "./admin/profile";
-import PetsClasses from "./admin/pets-classes";
+import ManageStock from "./admin/manage-stock";
+import ManageUsers from "./admin/manage-users";
 
 export {
   Logon,
@@ -18,5 +19,6 @@ export {
   // Admin exports
   AdminDashboard,
   AdminProfile,
-  PetsClasses,
+  ManageStock,
+  ManageUsers
 };
