@@ -57,7 +57,7 @@ export default class Logon extends React.Component {
   }
 
   gotoHome() {
-    this.props.history.push("/hero");
+    this.props.history.push("/user");
   }
 
   render() {
@@ -65,8 +65,7 @@ export default class Logon extends React.Component {
       <section className="form my-4 mx-5">
         <div className="container main-container">
           <div className="row no-gutters">
-            <div className="col-lg-6 col-md-6">
-              <br />
+            <div className="col-lg-6 col-md-6 center">
               <div className="col-lg-12 col-md-10 img">
                 <img alt="dog-banner" src={frotaImage} className="img-fluid" />
               </div>
@@ -81,7 +80,7 @@ export default class Logon extends React.Component {
               <h5>Acessar o sistema</h5>
               <form onSubmit={this.handleLogin}>
                 <div className="form-row">
-                  <div className="col-lg-10">
+                  <div className="col-lg-12">
                     <input
                       type="cpf"
                       placeholder="CPF"
@@ -95,7 +94,7 @@ export default class Logon extends React.Component {
                   </div>
                 </div>
                 <div className="form-row">
-                  <div className="col-lg-10">
+                  <div className="col-lg-12">
                     <input
                       type="password"
                       placeholder="Senha"
@@ -106,13 +105,18 @@ export default class Logon extends React.Component {
                       className="form-control p-4"
                       required={true}
                     />
+                    <div className="col-lg-12 right-link">
+                      <a href="/auth/recuperar-senha">
+                        <small>Esqueci minha senha</small>
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div
                   className="form-row"
                   style={{ display: this.state.loginErro }}
                 >
-                  <div className="col-lg-10">
+                  <div className="col-lg-12">
                     <br />
                     <div
                       className="alert alert-warning alert-dismissible fade show"
@@ -120,7 +124,7 @@ export default class Logon extends React.Component {
                     >
                       <strong>Ooops!</strong>
                       {this.state.loginErroMsg}{" "}
-                      <a href="/auth/recuperar-senha">Recuperar senha</a>
+                      <a href="/auth/recuperar-senha"><small>Esqueceu sua senha?</small></a>
                       <button
                         type="button"
                         onClick={() =>
@@ -136,7 +140,7 @@ export default class Logon extends React.Component {
                 </div>
 
                 <div className="form-row">
-                  <div className="col-lg-10">
+                  <div className="col-lg-12" style={{paddingTop:"30px"}}>
                     <button
                       onClick={(e) => this.handleLogin(e)}
                       type="submit"
@@ -146,12 +150,11 @@ export default class Logon extends React.Component {
                     </button>
                   </div>
                 </div>
-                <p>
-                 Ainda não tem registro?
-                  <a href="/auth/cadastrar"> Cadastre-se!</a>
-                </p>
               </form>
-              <div className="col-lg-12 col-md-8">
+              <div className="col-lg-12 center-link">
+                  <a href="/auth/cadastrar">Cadastre-me</a>
+              </div>
+              <div className="col-lg-12 col-md-8 center">
                 <p className="centertext descriptiontext">
                   <br />
                   <br />

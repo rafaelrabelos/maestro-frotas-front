@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
 import { Switch, Redirect } from "react-router-dom";
+import "./styles/auth.css";
 //components
 import Rodape from "./components/rodape";
 import routes, { getRoutes } from "routes.js";
@@ -16,7 +17,7 @@ class AuthLayout extends React.Component {
   render() {
     return (
       <>
-        <div className="main-content">
+        <div className="main-content auth-main-content">
           {/* Page content */}
 
           {/* roteamento do layout */}

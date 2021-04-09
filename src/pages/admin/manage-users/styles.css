@@ -1,0 +1,5 @@
+.table-wrap {
+  height: 120%;
+  width: 800px;
+  overflow-y: auto;
+}

@@ -5,7 +5,6 @@ export default function RodapeAdmin() {
   return (
     <>
       <footer className="footer-distributed">
-        <hr />
         <div className="footer-left">
           <p className="footer-links">
             <a href="/admin" className="link-1">

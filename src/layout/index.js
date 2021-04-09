@@ -1,5 +1,5 @@
-import HeroLayout from "./principal/mainTemplate";
+import UserLayout from "./principal/mainTemplate";
 import AuthLayout from "./auth/authTemplate";
 import AdminLayout from "./admin/adminTemplate";
 
-export { HeroLayout, AuthLayout, AdminLayout };
+export { UserLayout, AuthLayout, AdminLayout };

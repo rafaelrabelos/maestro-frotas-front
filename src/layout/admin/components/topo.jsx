@@ -2,7 +2,6 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { AuthService } from "services";
 import { withRouter } from "react-router";
-import SwitchLayout from "components/switchLayout";
 import UserProfileItem from "components/userProfileItem";
 import GlobalSearch from "components/globalSearch";
 import "layout/admin/styles/topo.css";
@@ -24,6 +23,7 @@ class TopoAdmin extends React.Component {
           className="navbar fixed-top navbar-expand-sm navbar-dark bg-dark"
           style={{ borderBottomStyle: "solid", borderColor: "grey" }}
         >
+          <a href="/admin"><h2>MAESTRO FROTAS</h2></a>
           <button
             className="navbar-toggler"
             type="button"
@@ -43,16 +43,6 @@ class TopoAdmin extends React.Component {
             <div className="mx-auto order-0">
               <div className="input-group input-group-sm mb-3">
                 <GlobalSearch />
-              </div>
-            </div>
-
-            <div className="w-10 order-2">
-              <div className="row text-center ">
-                <div className="col-md-6 mb-4">
-                  <div className="col col-md-12" style={{ marginTop: "30px" }}>
-                    <SwitchLayout />
-                  </div>
-                </div>
               </div>
             </div>
 

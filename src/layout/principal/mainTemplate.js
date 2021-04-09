@@ -4,10 +4,12 @@ import { Switch, Redirect } from "react-router-dom";
 //components
 import Topo from "./components/topo";
 import Rodape from "./components/rodape";
+import SideBar from "./components/sidebar";
+import BreadCrumb from "components/breadcrumb";
 import routes, { getRoutes } from "routes.js";
 import "./styles/layout.css";
 
-class HeroLayout extends React.Component {
+class UserLayout extends React.Component {
   componentDidMount() {
     document.body.classList.add("bg-default");
   }
@@ -19,15 +21,17 @@ class HeroLayout extends React.Component {
     return (
       <>
         <Topo />
+        <SideBar basePath="/user" />
         <div className="main-content">
+        <BreadCrumb />
           {/* Page content */}
 
           {/* roteamento do layout */}
           <Container className="mt--8 pb-5">
             <Row className="justify-content-center">
               <Switch>
-                {getRoutes(routes, "/hero")}
-                <Redirect from="*" to="/hero/index" />
+                {getRoutes(routes, "/user")}
+                <Redirect from="*" to="/user/home" />
               </Switch>
             </Row>
           </Container>
@@ -38,4 +42,4 @@ class HeroLayout extends React.Component {
   }
 }
 
-export default HeroLayout;
+export default UserLayout;

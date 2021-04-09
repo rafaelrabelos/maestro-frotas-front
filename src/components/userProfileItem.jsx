@@ -1,6 +1,7 @@
 import React from "react";
 import { AuthService } from "services";
 import { withRouter } from "react-router";
+import SwitchLayout from "components/switchLayout";
 import "./css/components.css";
 
 class UserProfileItem extends React.Component {
@@ -27,7 +28,66 @@ class UserProfileItem extends React.Component {
       this.props.history.push("/auth");
     });
 
+  messagesButton() {
+    return (
+      <div className="row">
+        <div className="col col-md-2">
+          <span className="badge badge-pill badge-warning">2</span>
+          <button
+            className="btn btn-circle btn-sm btn-outline-primary"
+            type="submit"
+          >
+            <i className="fa fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  dropDownMenuItems() {
+    const { pathBase } = this.props;
+    const menuItemsData = [
+      { divider: true },
+      {
+        title: "Perfil",
+        icon: "fa fa-user-circle",
+        color: "Blue",
+        href: `${pathBase}/profile`,
+        onClick: ()=>{},
+      },
+      { divider: true },
+      {
+        title: "Sair",
+        icon: "fa fa-sign-out-alt",
+        color: "Tomato",
+        href: `/user`,
+        onClick: () => this.handleLogout(),
+      },
+    ];
+    return menuItemsData.map((item, idx) =>
+      item.divider ? (
+        <div key={`${idx}-dropdown-item`} className="dropdown-divider"></div>
+      ) : (
+        <a className="dropdown-item"
+        key={`${idx}-dropdown-item`}
+        href={item.href}
+        onClick={item.onClick}
+        >
+          <div className="row">
+            <div className="col col-md-2">
+                <span style={{color: item.color }}>
+                  <i className={item.icon}></i>
+                </span>
+            </div>
+            <div className="col col-md-2">{item.title}</div>
+          </div>
+        </a>
+      )
+    );
+  }
+
   render() {
+    const randUserNum = 9;
     return (
       <>
         <a
@@ -44,13 +104,12 @@ class UserProfileItem extends React.Component {
               <img
                 alt="avatar"
                 className="circle-img rounded-circle"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg"
+                src={`https://mdbootstrap.com/img/Photos/Avatars/img%20(${randUserNum}).jpg`}
                 data-holder-rendered="true"
               />
               <span className="badge badge-danger">3</span>
             </div>
           </div>
-
           <small className="username">{this.state.userName}</small>
         </a>
         <div
@@ -60,50 +119,12 @@ class UserProfileItem extends React.Component {
           <div className="col col-md-12 user-description">
             <div className="row">
               <div className="col col-md-2">
-                <span className="badge badge-warning">1</span>
-                <button
-                  className="btn btn-circle btn-sm btn-outline-primary"
-                  type="submit"
-                >
-                  <i className="fa fa-paw"></i>
-                </button>
+                <SwitchLayout />
               </div>
-              <div className="col col-md-2">
-                <span className="badge badge-pill badge-warning">2</span>
-                <button
-                  className="btn btn-circle btn-sm btn-outline-primary"
-                  type="submit"
-                >
-                  <i className="fa fa-paper-plane"></i>
-                </button>
-              </div>
-              <div className="col col-md-2"></div>
+              <div className="col col-md-2">{this.messagesButton()}</div>
             </div>
           </div>
-          <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href={`${this.props.pathBase}/profile`}>
-            <div className="row">
-              <div className="col col-md-2">
-                <i className="fa fa-user-circle"></i>
-              </div>
-              <div className="col col-md-2">Perfil</div>
-            </div>
-          </a>
-          <div className="dropdown-divider"></div>
-          <a
-            className="dropdown-item"
-            href="/hero"
-            onClick={() => this.handleLogout()}
-          >
-            <div className="row">
-              <div className="col col-md-2">
-                <span style={{ fontsize: "3em", color: "Tomato" }}>
-                  <i className="fa fa-sign-out-alt"></i>
-                </span>
-              </div>
-              <div className="col col-md-2">Sair</div>
-            </div>
-          </a>
+          {this.dropDownMenuItems()}
         </div>
       </>
     );

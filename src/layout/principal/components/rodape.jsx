@@ -5,7 +5,6 @@ export default function Rodape() {
   return (
     <>
       <footer className="footer-distributed">
-        <hr />
         <div className="footer-left">
           <p className="footer-links">
             <a href="/" className="link-1">
@@ -51,7 +50,6 @@ export default function Rodape() {
           </div>
         </div>
       </footer>
-      <hr />
     </>
   );
 }
