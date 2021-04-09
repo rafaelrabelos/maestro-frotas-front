@@ -14,9 +14,6 @@ export async function ObtemPetClasses() {
   } catch (err) {
     console.log(err.response);
     response.data.erros = err.response.data.erros;
-    response.data.erros.push([
-      `${err.response.status}(${err.response.statusText}) Erro na comunicação do sistema.`,
-    ]);
     return response;
   }
 }

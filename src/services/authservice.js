@@ -1,6 +1,45 @@
 import api from "./api";
 import jwt_decode from "jwt-decode";
 
+export async function SendRecoveryCode({ cpf }) {
+  let response = { data: { status: false, erros: [] } };
+  
+  try {
+    const res = await api.post("/auth/recovery/send-info", { cpf });
+    return res;
+  } catch (err) {
+    console.log(err.response || "");
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
+}
+
+export async function ValidateRecoveryCode({ cpf, code }) {
+  let response = { data: { status: false, erros: [] } };
+  
+  try {
+    const res = await api.post("/auth/recovery/validate-code", { cpf, code });
+    return res;
+  } catch (err) {
+    console.log(err.response || "");
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
+}
+
+export async function SetRecoveryPassword({ cpf, code, pass }) {
+  let response = { data: { status: false, erros: [] } };
+  
+  try {
+    const res = await api.post("/auth/recovery/set-password", { cpf, code, pass });
+    return res;
+  } catch (err) {
+    console.log(err.response || "");
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
+}
+
 export async function Login({ cpf, senha }) {
   const res = await api.post("/auth/login", { cpf, senha });
 
