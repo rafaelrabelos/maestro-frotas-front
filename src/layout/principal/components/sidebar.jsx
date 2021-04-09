@@ -12,48 +12,30 @@ class SideBar extends React.Component {
 
   menuSubItemList() {
     const {basePath} = this.props;
-    const subItens_Gerenciar = [
+    const subItens_Suporte = [
       {
-        href: `${basePath}/gerenciar-usuarios`,
+        href: `${basePath}/pets`,
         faIco: "fa fa-user",
-        name: "Usuários",
+        name: "Usuarios",
         class: "nc",
-        parentName: "Gerenciar",
+        color: "#0c91a8",
+        parentName: "Suporte",
       },
       {
-        href: `${basePath}/gerenciar-frota`,
+        href: `${basePath}/pets-classes`,
         faIco: "fa fa-car",
-        name: "Frota",
+        name: "Veiculos",
         class: "nc",
-        parentName: "Gerenciar",
+        color: "#0c91a8",
+        parentName: "Suporte",
       },
       {
         href: `${basePath}/pets-racas`,
-        faIco: "fa fa-truck",
-        name: "Fornecedores",
-        class: "nc",
-        parentName: "Gerenciar",
-      },
-    ];
-
-    const subItens_Relatorios = [
-      {
-        href: `${basePath}/users`,
         faIco: "fa fa-handshake",
-        name: "Adesão/Locação",
+        name: "Reserva",
         class: "nc",
-        color: "#833f94",
-        parentName: "Relatórios",
-      },
-    ];
-
-    const subItens_Colaboradores = [
-      {
-        href: `${basePath}/vacinas`,
-        faIco: "fa fa-pills",
-        name: "Beneficios",
-        class: "nc",
-        parentName: "Colaboradores",
+        color: "#0c91a8",
+        parentName: "Suporte",
       },
     ];
 
@@ -74,8 +56,8 @@ class SideBar extends React.Component {
       },
     ];
 
-    return subItens_Gerenciar.concat(
-      subItens_Relatorios.concat(subItens_Colaboradores.concat(subItens_Ajuste))
+    return subItens_Suporte.concat(
+      subItens_Ajuste
     );
   }
 
@@ -93,28 +75,10 @@ class SideBar extends React.Component {
       //in group
       {
         href: basePath,
-        faIco: "fa fa-cog",
-        name: "Gerenciar",
+        faIco: "fa fa-window-restore",
+        name: "Suporte",
         class: "darkerlishadow",
-        color: "#0c91a8",
-        group: true,
-        subItens: [],
-      },
-      {
-        href: basePath,
-        faIco: "fa fa-database",
-        name: "Relatórios",
-        class: "darkerli",
-        color: "#0c91a8",
-        group: true,
-        subItens: [],
-      },
-      {
-        href: basePath,
-        faIco: "fa fa-address-card",
-        name: "Colaboradores",
-        class: "darkerli",
-        color: "#0c91a8",
+        color: "#860ba5",
         group: true,
         subItens: [],
       },

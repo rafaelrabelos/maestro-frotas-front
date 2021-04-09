@@ -1,13 +1,15 @@
-import Logon from "./hero/logon";
-import Register from "./hero/register";
-import Home from "./hero/home";
-import Pet from "./hero/pet";
-import Profile from "./hero/profile";
+import Logon from "./user/logon";
+import Register from "./user/register";
+import Home from "./user/home";
+import Pet from "./user/pet";
+import Profile from "./user/profile";
 
 // Admin imports
 import AdminDashboard from "./admin/home";
 import AdminProfile from "./admin/profile";
-import PetsClasses from "./admin/pets-classes";
+import ManageStock from "./admin/manage-stock";
+import ManageUsers from "./admin/manage-users";
+import PasswordRecovery from './user/pass-recovery'
 
 export {
   Logon,
@@ -18,5 +20,7 @@ export {
   // Admin exports
   AdminDashboard,
   AdminProfile,
-  PetsClasses,
+  ManageStock,
+  ManageUsers,
+  PasswordRecovery
 };

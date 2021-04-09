@@ -12,11 +12,6 @@
   box-shadow: 4px 4px 8px #808080b8;
   margin-bottom: 10%;
 }
-img {
-  padding-top: 120px;
-  border-top-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
 .btn1,
 .btn2 {
   border: none;
@@ -49,4 +44,28 @@ img {
 }
 .descriptiontext {
   color: rgb(41, 27, 23);
+}
+.center {
+  margin: auto;
+  width: 100%;
+  padding: 5px;
+}
+.center-link {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  padding-top: 10px;
+
+}
+.right-link {
+  text-align: right;
+  margin: auto;
+  width: 100%;
+  padding-top: 5px;
+}
+
+img{
+  margin: auto;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
 }

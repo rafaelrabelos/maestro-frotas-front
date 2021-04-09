@@ -14,9 +14,6 @@ export async function Obtem() {
   } catch (err) {
     console.log(err.response);
     response.data.erros = err.response.data.erros;
-    response.data.erros.push([
-      `${err.response.status}(${err.response.statusText}) Erro na comunicação do sistema.`,
-    ]);
     return response;
   }
 }
@@ -36,9 +33,6 @@ export async function Update({ nome, sobrenome, email }) {
   } catch (err) {
     console.log(err.response);
     response.data.erros = err.response.data.erros;
-    response.data.erros.push([
-      `${err.response.status}(${err.response.statusText}) Erro na comunicação do sistema.`,
-    ]);
     return response;
   }
 }
@@ -72,9 +66,6 @@ export async function Create({ nome, email, senha }) {
   } catch (err) {
     console.log(err.response);
     response.data.erros = err.response.data.erros;
-    response.data.erros.push([
-      `${err.response.status}(${err.response.statusText}) Erro na comunicação do sistema.`,
-    ]);
     return response;
   }
 }

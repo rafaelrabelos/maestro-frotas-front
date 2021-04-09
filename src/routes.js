@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 import React from "react";
 import { Logon, Register, Pet, Home, Profile } from "./pages";
-import { AdminProfile, AdminDashboard, PetsClasses } from "./pages";
+import { AdminProfile, AdminDashboard, ManageUsers, ManageStock, PasswordRecovery } from "./pages";
 
 var userRoutes = [
   {
@@ -17,19 +17,25 @@ var userRoutes = [
     component: Register,
   },
   {
-    layout: "/hero",
-    page: "/index",
+    layout: "/auth",
+    page: "/recuperar-senha",
+    nome: "Recuperar senha",
+    component: PasswordRecovery,
+  },
+  {
+    layout: "/user",
+    page: "/home",
     nome: "Dashboard",
     component: Home,
   },
   {
-    layout: "/hero",
+    layout: "/user",
     page: "/profile",
     nome: "Profile",
     component: Profile,
   },
   {
-    layout: "/hero",
+    layout: "/user",
     page: "/cadastrar",
     nome: "CadastrarPet",
     component: Pet,
@@ -40,7 +46,7 @@ var adminRoutes = [
   {
     layout: "/admin",
     page: "/home",
-    nome: "Home",
+    nome: "Dashboard",
     component: AdminDashboard,
   },
   {
@@ -51,9 +57,15 @@ var adminRoutes = [
   },
   {
     layout: "/admin",
-    page: "/pets-classes",
+    page: "/gerenciar-usuarios",
     nome: "Classes",
-    component: PetsClasses,
+    component: ManageUsers,
+  },
+  {
+    layout: "/admin",
+    page: "/gerenciar-frota",
+    nome: "Classes",
+    component: ManageStock,
   },
 ];
 
