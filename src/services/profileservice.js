@@ -20,7 +20,7 @@ export async function Create({ nome, cpf, email, senha }) {
 
     const token = sysLogin.data.data.token;
     const res = await api.post(
-      "/user",
+      "/user/register",
       { nome, cpf, email, senha },
       { headers: { Authorization: `Bearer ${token}` } }
     );
