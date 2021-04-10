@@ -43,7 +43,7 @@ export default class Register extends React.Component {
         } else {
           alert("Cadastro Efetuado com sucesso!");
           AuthService.Login({
-            email: this.state.email,
+            cpf: this.state.cpf,
             senha: this.state.senha,
           }).then(() => this.gotoAuth());
         }
@@ -111,13 +111,8 @@ export default class Register extends React.Component {
 
     await this.validaSenhas() && await this.validaCpf();
 
-    if (this.state.cpf.length < 11){
-      this.setState({
-        cadastrarErro: true,
-        cadastrarErroMsg: ["CPF incompleto."],
-      });
-    }
-    else if (
+    
+    if (
       this.state.nome === "" ||
       this.state.cpf === "" ||
       this.state.email === "" ||
@@ -126,6 +121,11 @@ export default class Register extends React.Component {
       this.setState({
         cadastrarErro: true,
         cadastrarErroMsg: ["Informe todos os campos."],
+      });
+    }else if (this.state.cpf.length < 11){
+      this.setState({
+        cadastrarErro: true,
+        cadastrarErroMsg: ["CPF incompleto."],
       });
     }
   }
@@ -206,11 +206,8 @@ export default class Register extends React.Component {
                 required={true}
               />
               <div className="row">
-                <div
-                  className="form-row"
-                  style={{ display: this.state.cadastrarErro }}
-                >
-                  <div className="col-lg-12">
+
+                  <div className="col-lg-12" style={{ display: this.state.cadastrarErro }}>
                     <br />
                     <div
                       className="alert alert-warning alert-dismissible fade show"
@@ -233,7 +230,7 @@ export default class Register extends React.Component {
                       </button>
                     </div>
                   </div>
-                </div>
+                
               </div>
 
               <button

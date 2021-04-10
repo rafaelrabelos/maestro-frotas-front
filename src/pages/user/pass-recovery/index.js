@@ -62,7 +62,7 @@ export default class PasswordRecovery extends React.Component {
         senhaRepetida: "",
         recoveryCode: "",
         statusMsg: "",
-      });
+      }, () => this.gotoAuth());
     } 
 
     if (this.state.recoverPassErroMsg.length > 0) {
