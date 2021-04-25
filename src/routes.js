@@ -1,9 +1,24 @@
 import { Route } from "react-router-dom";
 import React from "react";
-import { Logon, Register, Pet, Home, Profile } from "./pages";
-import { AdminProfile, AdminDashboard, ManageUsers, ManageStock, PasswordRecovery } from "./pages";
+// Auth pages components
+import { Logon, Register, PasswordRecovery} from "./pages";
+// User pages components
+import { UserDashboard, Profile, Pet } from "./pages";
+// Admin pages components
+import { AdminDashboard, AdminProfile, ManageUsers, ManageStock } from "./pages";
+// Public pages components
+import { Contact } from "./pages";
 
-var userRoutes = [
+const publicRoutes = [
+  {
+    layout: "/auth",
+    page: "/contato",
+    nome: "Contato",
+    component: Contact,
+  },
+];
+
+const authRoutes = [
   {
     layout: "/auth",
     page: "/login",
@@ -22,11 +37,14 @@ var userRoutes = [
     nome: "Recuperar senha",
     component: PasswordRecovery,
   },
+];
+
+const userRoutes = [
   {
     layout: "/user",
     page: "/home",
     nome: "Dashboard",
-    component: Home,
+    component: UserDashboard,
   },
   {
     layout: "/user",
@@ -42,7 +60,7 @@ var userRoutes = [
   },
 ];
 
-var adminRoutes = [
+const adminRoutes = [
   {
     layout: "/admin",
     page: "/home",
@@ -69,7 +87,12 @@ var adminRoutes = [
   },
 ];
 
-const routes = userRoutes.concat(adminRoutes);
+const routes = [].concat(...[
+  userRoutes,
+  adminRoutes,
+  authRoutes,
+  publicRoutes
+]);
 
 function getPageName(path) {
   
