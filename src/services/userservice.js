@@ -6,7 +6,7 @@ export async function Obtem() {
   const token = sessionStorage.getItem("token");
 
   try {
-    const res = await api.get("/user", {
+    const res = await (await api()).get("/user", {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -23,7 +23,7 @@ export async function Update({ nome, sobrenome, email }) {
   const token = sessionStorage.getItem("token");
 
   try {
-    const res = await api.put(
+    const res = await (await api()).put(
       "/user",
       { nome, sobrenome, email },
       { headers: { Authorization: `Bearer ${token}` } }
@@ -48,7 +48,7 @@ export async function Create({ nome, email, senha }) {
   }
 
   try {
-    const sysLogin = await api.post("/login", { email: user, senha: pass });
+    const sysLogin = await (await api()).post("/login", { email: user, senha: pass });
 
     if (sysLogin.data.status !== true) {
       response.data.erros = ["Sistema não pode se validar corretamente."];
@@ -56,7 +56,7 @@ export async function Create({ nome, email, senha }) {
     }
 
     const token = sysLogin.data.data.token;
-    const res = await api.post(
+    const res = await (await api()).post(
       "/user",
       { nome, email, senha },
       { headers: { Authorization: `Bearer ${token}` } }

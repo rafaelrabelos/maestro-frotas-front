@@ -11,7 +11,7 @@ export async function Create({ nome, cpf, email, senha }) {
   }
 
   try {
-    const sysLogin = await api.post("/auth/login", { cpf: user, senha: pass });
+    const sysLogin = await (await api()).post("/auth/login", { cpf: user, senha: pass });
 
     if (sysLogin.data.status !== true) {
       response.data.erros = ["Sistema não pode se validar corretamente."];
@@ -19,7 +19,7 @@ export async function Create({ nome, cpf, email, senha }) {
     }
 
     const token = sysLogin.data.data.token;
-    const res = await api.post(
+    const res = await (await api()).post(
       "/user/register",
       { nome, cpf, email, senha },
       { headers: { Authorization: `Bearer ${token}` } }

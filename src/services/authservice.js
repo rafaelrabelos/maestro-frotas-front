@@ -5,7 +5,7 @@ export async function SendRecoveryCode({ cpf }) {
   let response = { data: { status: false, erros: [] } };
   
   try {
-    const res = await api.post("/auth/recovery/send-info", { cpf });
+    const res = await(await api()).post("/auth/recovery/send-info", { cpf });
     return res;
   } catch (err) {
     console.log(err.response || "");
@@ -18,7 +18,7 @@ export async function ValidateRecoveryCode({ cpf, code }) {
   let response = { data: { status: false, erros: [] } };
   
   try {
-    const res = await api.post("/auth/recovery/validate-code", { cpf, code });
+    const res = await(await api()).post("/auth/recovery/validate-code", { cpf, code });
     return res;
   } catch (err) {
     console.log(err.response || "");
@@ -31,7 +31,7 @@ export async function SetRecoveryPassword({ cpf, code, pass }) {
   let response = { data: { status: false, erros: [] } };
   
   try {
-    const res = await api.post("/auth/recovery/set-password", { cpf, code, pass });
+    const res = await(await api()).post("/auth/recovery/set-password", { cpf, code, pass });
     return res;
   } catch (err) {
     console.log(err.response || "");
@@ -41,7 +41,7 @@ export async function SetRecoveryPassword({ cpf, code, pass }) {
 }
 
 export async function Login({ cpf, senha }) {
-  const res = await api.post("/auth/login", { cpf, senha });
+  const res = await(await api()).post("/auth/login", { cpf, senha });
 
   if (res.data.status !== false) {
     sessionStorage.setItem("token", res.data.data.token);

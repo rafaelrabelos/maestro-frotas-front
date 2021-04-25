@@ -6,7 +6,7 @@ export async function ObtemPetClasses() {
   const token = sessionStorage.getItem("token");
 
   try {
-    const res = await api.get("/pet-classe", {
+    const res = await (await api()).get("/pet-classe", {
       headers: { Authorization: `Bearer ${token}` },
     });
 
