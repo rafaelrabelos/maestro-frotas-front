@@ -26,7 +26,7 @@ export default function Register() {
     };
 
     try {
-      const response = await api.post("pets", data);
+      const response = await (await api()).post("pets", data);
 
       alert(`Pet ${response.data.nome} cadastrado com sucesso`);
 
