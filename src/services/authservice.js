@@ -41,14 +41,52 @@ export async function SetRecoveryPassword({ cpf, code, pass }) {
 }
 
 export async function Login({ cpf, senha }) {
-  const res = await(await api()).post("/auth/login", { cpf, senha });
+  let response = { data: { status: false, erros: [] } };
 
-  if (res.data.status !== false) {
-    sessionStorage.setItem("token", res.data.data.token);
-    IsValideSession();
-  }
+  try {
+    const res = await(await api()).post("/auth/login", { cpf, senha });
+
+    if (res.data.status !== false) {
+      sessionStorage.setItem("token", res.data.data.token);
+      IsValideSession();
+    }
 
   return res;
+  } catch (err) {
+    console.log(err)
+    console.log(err.response);
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
+}
+
+export async function IncludeSysCredentialsToRequest(httpClient) {
+  const user = process.env.REACT_APP_SYS_BACK_USER;
+  const pass = process.env.REACT_APP_SYS_BACK_PW;
+  let response = { data: { status: false, erros: [] } };
+
+  if (!user || !pass) {
+    response.data.erros = ["Sistema não pode acessar o ambiente externo."];
+    return response;
+  }
+
+  try {
+    const sysLogin = await httpClient.post("/auth/login", { cpf: user, senha: pass });
+
+    if (sysLogin.data.status !== true) {
+      response.data.erros = ["Sistema não pode se validar corretamente."];
+      return response;
+    }
+
+    const sysData = sysLogin.data.data;
+    httpClient.defaults.headers.common['Authorization'] = `Bearer ${sysData.token}`;
+
+    return httpClient;
+  } catch (err) {
+    console.log(err.response);
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
 }
 
 export async function Logout() {
