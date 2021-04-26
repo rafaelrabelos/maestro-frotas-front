@@ -13,7 +13,7 @@ export default class Register extends React.Component {
       email: '',
       subject: '',
       message: '',
-      formErro: '',
+      formErro: 'none',
       formErroMsg: '',
       loading: false,
     };
