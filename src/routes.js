@@ -76,13 +76,13 @@ const adminRoutes = [
   {
     layout: "/admin",
     page: "/gerenciar-usuarios",
-    nome: "Classes",
+    nome: "Usuários",
     component: ManageUsers,
   },
   {
     layout: "/admin",
     page: "/gerenciar-frota",
-    nome: "Classes",
+    nome: "Frota",
     component: ManageStock,
   },
 ];

@@ -19,6 +19,24 @@ export async function Obtem() {
   }
 }
 
+export async function GetSelf() {
+  let response = { data: { status: false, erros: [] } };
+
+  const token = secureStorage().getItem("token");
+
+  try {
+    const res = await (await api()).get(`/user`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    return res.data;
+  } catch (err) {
+    console.log(err.response);
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
+}
+
 export async function Update({ nome, sobrenome, email }) {
   let response = { data: { status: false, erros: [] } };
   const token = secureStorage().getItem("token");
