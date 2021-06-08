@@ -1,9 +1,10 @@
 import api from "./api";
+import { secureStorage } from 'websecure-local-storage'
 
 export async function Obtem() {
   let response = { data: { status: false, erros: [] } };
 
-  const token = sessionStorage.getItem("token");
+  const token = secureStorage().getItem("token");
 
   try {
     const res = await (await api()).get("/user", {
@@ -20,7 +21,7 @@ export async function Obtem() {
 
 export async function Update({ nome, sobrenome, email }) {
   let response = { data: { status: false, erros: [] } };
-  const token = sessionStorage.getItem("token");
+  const token = secureStorage().getItem("token");
 
   try {
     const res = await (await api()).put(

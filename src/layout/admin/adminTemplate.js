@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row } from "reactstrap";
 import { Switch, Redirect } from "react-router-dom";
 import routes, { getRoutes } from "routes.js";
+import { secureStorage } from 'websecure-local-storage'
 //components
 import TopoAdmin from "./components/topo";
 import RodapeAdmin from "./components/rodape";
@@ -18,7 +19,7 @@ class AdminLayout extends React.Component {
   }
 
   shwowSwitchLayout() {
-    const userRights = sessionStorage.getItem("usertype");
+    const userRights = secureStorage().getItem("usertype");
     return (userRights === "root" || userRights === "admin") === true || false;
   }
 
