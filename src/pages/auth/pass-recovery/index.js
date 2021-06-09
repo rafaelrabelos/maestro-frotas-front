@@ -274,13 +274,16 @@ export default class PasswordRecovery extends React.Component {
       <section className="form my-4 mx-5">
         <div className="register-container">
           <div className="content">
+          <div className="col col-md-4">
+                <section>
+                  <h2>Recuperação de senha</h2>
+                  <p>
+                    Informe os dados ao lado para realizar a recuperação de senha
+                  </p>
+                </section>
+              </div>
+              <div className="col col-md-6">
             <form onSubmit={(e) => this.handleRecovery(e)}>
-              <section>
-                <h2>Recuperação de senha</h2>
-                <p>
-                  Informe os dados ao lado para realizar a recuperação de senha
-                </p>
-              </section>
               <div className="input-wrapper">
                 <input
                   type="cpf"
@@ -338,21 +341,20 @@ export default class PasswordRecovery extends React.Component {
                 />
               </div>
               <div className="input-wrapper">
-                <input
-                  type="password"
-                  placeholder="Repetir Senha"
-                  value={this.state.senhaRepetida}
-                  onChange={(e) =>
-                    this.setState(
-                      { senhaRepetida: e.target.value },
-                      async () => await this.validaSenhas()
-                    )
-                  }
-                  required={step >= 3}
-                  disabled={step !== 3}
-                />
-              </div>
-
+              <input
+                type="password"
+                placeholder="Repetir Senha"
+                value={this.state.senhaRepetida}
+                onChange={(e) =>
+                  this.setState(
+                    { senhaRepetida: e.target.value },
+                    async () => await this.validaSenhas()
+                  )
+                }
+                required={step >= 3}
+                disabled={step !== 3}
+              />
+            </div>
               <div
                 className="row"
                 style={{ display: this.state.recoverPassErro }}
@@ -381,7 +383,6 @@ export default class PasswordRecovery extends React.Component {
                   </div>
                 </div>
               </div>
-
               <button
                 className="btn btn1 mt-3 mb-1"
                 disabled={loading || !enableBtn}
@@ -396,6 +397,7 @@ export default class PasswordRecovery extends React.Component {
                 Fazer login
               </Link>
             </form>
+            </div>
           </div>
         </div>
       </section>

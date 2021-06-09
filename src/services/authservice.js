@@ -1,5 +1,6 @@
 import api from "./api";
 import jwt_decode from "jwt-decode";
+import { secureStorage } from 'websecure-local-storage'
 
 export async function SendRecoveryCode({ cpf }) {
   let response = { data: { status: false, erros: [] } };
@@ -41,14 +42,52 @@ export async function SetRecoveryPassword({ cpf, code, pass }) {
 }
 
 export async function Login({ cpf, senha }) {
-  const res = await(await api()).post("/auth/login", { cpf, senha });
+  let response = { data: { status: false, erros: [] } };
 
-  if (res.data.status !== false) {
-    sessionStorage.setItem("token", res.data.data.token);
-    IsValideSession();
-  }
+  try {
+    const res = await(await api()).post("/auth/login", { cpf, senha });
+
+    if (res.data.status !== false) {
+      secureStorage().setItem('token',res.data.data.token);
+      IsValideSession();
+    }
 
   return res;
+  } catch (err) {
+    console.log(err)
+    console.log(err.response);
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
+}
+
+export async function IncludeSysCredentialsToRequest(httpClient) {
+  const user = process.env.REACT_APP_SYS_BACK_USER;
+  const pass = process.env.REACT_APP_SYS_BACK_PW;
+  let response = { data: { status: false, erros: [] } };
+
+  if (!user || !pass) {
+    response.data.erros = ["Sistema não pode acessar o ambiente externo."];
+    return response;
+  }
+
+  try {
+    const sysLogin = await httpClient.post("/auth/login", { cpf: user, senha: pass });
+
+    if (sysLogin.data.status !== true) {
+      response.data.erros = ["Sistema não pode se validar corretamente."];
+      return response;
+    }
+
+    const sysData = sysLogin.data.data;
+    httpClient.defaults.headers.common['Authorization'] = `Bearer ${sysData.token}`;
+
+    return httpClient;
+  } catch (err) {
+    console.log(err.response);
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
 }
 
 export async function Logout() {
@@ -60,20 +99,20 @@ export function GetSessionData({ itemNane }) {
 }
 
 function SessionInit(data) {
-  sessionStorage.setItem("nome", data.user.nome);
-  sessionStorage.setItem("email", data.user.email);
-  sessionStorage.setItem("usertype", data.user.type);
-  sessionStorage.setItem("token", data.token);
+  secureStorage().setItem("nome", data.user.nome);
+  secureStorage().setItem("email", data.user.email);
+  secureStorage().setItem("usertype", data.user.type);
+  secureStorage().setItem("token", data.token);
 }
 
 function SessionFinish() {
-  sessionStorage.clear();
+  secureStorage().clear();
 }
 
 export function IsValideSession() {
-  var token = sessionStorage.getItem("token");
+  var token = secureStorage().getItem("token");
 
-  if (sessionStorage.getItem("token") !== null) {
+  if (secureStorage().getItem("token") !== null) {
     var decoded = jwt_decode(token);
 
     if (!decoded) {

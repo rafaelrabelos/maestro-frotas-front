@@ -31,7 +31,7 @@ const cardItem = (title, desc) =>{
   );
 }
 
-export default function Home() {
+export default function UserDashboard() {
   return (
     <>
       <div className="container">

@@ -1,26 +1,39 @@
-import Logon from "./user/logon";
-import Register from "./user/register";
-import Home from "./user/home";
-import Pet from "./user/pet";
-import Profile from "./user/profile";
+// Auth pages
+import Logon from "./auth/logon";
+import Register from "./auth/register";
+import PasswordRecovery from './auth/pass-recovery'
 
-// Admin imports
+// Public pages
+import Contact from "./publicWeb/contact";
+
+// User pages
+import UserDashboard from "./user/home";
+import Profile from "./user/profile";
+import Pet from "./user/pet";
+
+// Admin pages
 import AdminDashboard from "./admin/home";
 import AdminProfile from "./admin/profile";
 import ManageStock from "./admin/manage-stock";
 import ManageUsers from "./admin/manage-users";
-import PasswordRecovery from './user/pass-recovery'
 
 export {
+  // Auth pages
   Logon,
   Register,
-  Pet,
-  Home,
+  PasswordRecovery,
+
+  // Public pages
+  Contact,
+
+  // User pages
+  UserDashboard,
   Profile,
-  // Admin exports
+  Pet,
+
+  // Admin pages
   AdminDashboard,
   AdminProfile,
   ManageStock,
   ManageUsers,
-  PasswordRecovery
 };

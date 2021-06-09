@@ -1,12 +1,13 @@
 import api from "./api";
+import { secureStorage } from 'websecure-local-storage'
 
 export async function Obtem() {
   let response = { data: { status: false, erros: [] } };
 
-  const token = sessionStorage.getItem("token");
+  const token = secureStorage().getItem("token");
 
   try {
-    const res = await (await api()).get("/user", {
+    const res = await (await api()).get("/user/todos", {
       headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -20,12 +21,30 @@ export async function Obtem() {
 
 export async function Update({ nome, sobrenome, email }) {
   let response = { data: { status: false, erros: [] } };
-  const token = sessionStorage.getItem("token");
+  const token = secureStorage().getItem("token");
 
   try {
     const res = await (await api()).put(
       "/user",
       { nome, sobrenome, email },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+
+    return res;
+  } catch (err) {
+    console.log(err.response);
+    response.data.erros = err.response.data.erros;
+    return response;
+  }
+}
+
+export async function Delete(userId) {
+  let response = { data: { status: false, erros: [] } };
+  const token = secureStorage().getItem("token");
+
+  try {
+    const res = await (await api()).delete (
+      `/user/${userId}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
