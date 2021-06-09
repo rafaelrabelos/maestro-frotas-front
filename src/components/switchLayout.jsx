@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import { secureStorage } from 'websecure-local-storage'
 import "./css/components.css";
 
 class SwitchLayout extends React.Component {
@@ -17,7 +18,7 @@ class SwitchLayout extends React.Component {
   }
 
   shwowSwitchLayout() {
-    const userRights = sessionStorage.getItem("usertype");
+    const userRights = secureStorage().getItem("usertype");
     return (userRights === "root" || userRights === "admin") === true || false;
   }
 

@@ -1,5 +1,6 @@
 import api from "./api";
 import jwt_decode from "jwt-decode";
+import { secureStorage } from 'websecure-local-storage'
 
 export async function SendRecoveryCode({ cpf }) {
   let response = { data: { status: false, erros: [] } };
@@ -47,7 +48,7 @@ export async function Login({ cpf, senha }) {
     const res = await(await api()).post("/auth/login", { cpf, senha });
 
     if (res.data.status !== false) {
-      sessionStorage.setItem("token", res.data.data.token);
+      secureStorage().setItem('token',res.data.data.token);
       IsValideSession();
     }
 
@@ -98,20 +99,20 @@ export function GetSessionData({ itemNane }) {
 }
 
 function SessionInit(data) {
-  sessionStorage.setItem("nome", data.user.nome);
-  sessionStorage.setItem("email", data.user.email);
-  sessionStorage.setItem("usertype", data.user.type);
-  sessionStorage.setItem("token", data.token);
+  secureStorage().setItem("nome", data.user.nome);
+  secureStorage().setItem("email", data.user.email);
+  secureStorage().setItem("usertype", data.user.type);
+  secureStorage().setItem("token", data.token);
 }
 
 function SessionFinish() {
-  sessionStorage.clear();
+  secureStorage().clear();
 }
 
 export function IsValideSession() {
-  var token = sessionStorage.getItem("token");
+  var token = secureStorage().getItem("token");
 
-  if (sessionStorage.getItem("token") !== null) {
+  if (secureStorage().getItem("token") !== null) {
     var decoded = jwt_decode(token);
 
     if (!decoded) {

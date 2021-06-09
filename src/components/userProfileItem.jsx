@@ -2,6 +2,7 @@ import React from "react";
 import { AuthService } from "services";
 import { withRouter } from "react-router";
 import SwitchLayout from "components/switchLayout";
+import { secureStorage } from 'websecure-local-storage'
 import "./css/components.css";
 
 class UserProfileItem extends React.Component {
@@ -15,8 +16,8 @@ class UserProfileItem extends React.Component {
   componentDidMount() {
     if (this.state.userIsLoged) {
       this.setState({
-        userName: sessionStorage.getItem("nome"),
-        userEmail: sessionStorage.getItem("email"),
+        userName: secureStorage().getItem("nome"),
+        userEmail: secureStorage().getItem("email"),
       });
     } else {
       this.handleLogout();

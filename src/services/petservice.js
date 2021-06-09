@@ -1,9 +1,10 @@
 import api from "./api";
+import { secureStorage } from 'websecure-local-storage'
 
 export async function ObtemPetClasses() {
   let response = { data: { status: false, erros: [] } };
 
-  const token = sessionStorage.getItem("token");
+  const token = secureStorage().getItem("token");
 
   try {
     const res = await (await api()).get("/pet-classe", {
