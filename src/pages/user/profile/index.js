@@ -53,7 +53,6 @@ export default class Profile extends React.Component {
         <div className="col col-md-4">
           <UserProfileComponent />
         </div>
-        <div className="col col-md-8">aa</div>
       </>
     );
   }
